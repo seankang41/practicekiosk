@@ -1,0 +1,364 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'choosetype2_model.dart';
+export 'choosetype2_model.dart';
+
+class Choosetype2Widget extends StatefulWidget {
+  const Choosetype2Widget({
+    super.key,
+    String? name,
+    int? choiceMenuOptions,
+    required this.choiceMenuPrice,
+  })  : this.name = name ?? '치즈와퍼',
+        this.choiceMenuOptions = choiceMenuOptions ?? 0;
+
+  final String name;
+  final int choiceMenuOptions;
+  final int? choiceMenuPrice;
+
+  @override
+  State<Choosetype2Widget> createState() => _Choosetype2WidgetState();
+}
+
+class _Choosetype2WidgetState extends State<Choosetype2Widget> {
+  late Choosetype2Model _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => Choosetype2Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Container(
+      width: 294,
+      height: 360,
+      decoration: BoxDecoration(
+        color: Color(0xFFEBEBEB),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 3,
+            color: Color(0x33000000),
+            offset: Offset(
+              0,
+              1,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: FlutterFlowTheme.of(context).alternate,
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (widget!.choiceMenuOptions == 3)
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+              child: Text(
+                '3600원을 추가하면, 사이드와 음료가\n라지사이즈로 변경 됩니다. \n업그레이드 하시겠습니까?',
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      fontSize: 16,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w800,
+                    ),
+              ),
+            ),
+          if (widget!.choiceMenuOptions == 2)
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+              child: Text(
+                '700원을 추가하면, 사이드와 음료가\n라지사이즈로 변경 됩니다. \n업그레이드 하시겠습니까?',
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      fontSize: 16,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w800,
+                    ),
+              ),
+            ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 100,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0x00FFFFFF),
+                  image: DecorationImage(
+                    fit: BoxFit.contain,
+                    image: Image.asset(
+                      'assets/images/realburger.png',
+                    ).image,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(17, 0, 9, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${widget!.name}라지세트',
+                          textAlign: TextAlign.start,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        Text(
+                          '${widget!.name} + 프렌치프라이L + 콜라',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 8,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ].divide(SizedBox(height: 10)),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if (FFAppState().choiceMenuOptions != 0) {
+                      FFAppState().addToAmount(1);
+                      safeSetState(() {});
+                      if (widget!.choiceMenuOptions == 2) {
+                        context.pushNamed(
+                          'MainMenuCopy',
+                          queryParameters: {
+                            'name': serializeParam(
+                              widget!.name,
+                              ParamType.String,
+                            ),
+                            'price': serializeParam(
+                              FFAppState().choiceMenuPrice + 2900,
+                              ParamType.int,
+                            ),
+                            'choiceMenuOption': serializeParam(
+                              FFAppState().choiceMenuOptions,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                      } else {
+                        context.pushNamed(
+                          'MainMenuCopy',
+                          queryParameters: {
+                            'name': serializeParam(
+                              widget!.name,
+                              ParamType.String,
+                            ),
+                            'price': serializeParam(
+                              FFAppState().choiceMenuPrice,
+                              ParamType.int,
+                            ),
+                            'choiceMenuOption': serializeParam(
+                              FFAppState().choiceMenuOptions,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                      }
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            '다시 시도해보세요.',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 1500),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                    }
+
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.353,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF3A3A3A),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Text(
+                      '아니오',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: Colors.white,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if (FFAppState().choiceMenuOptions != 0) {
+                      if (widget!.choiceMenuOptions == 2) {
+                        context.pushNamed(
+                          'MainMenuCopy',
+                          queryParameters: {
+                            'name': serializeParam(
+                              '${widget!.name}라지세트',
+                              ParamType.String,
+                            ),
+                            'price': serializeParam(
+                              FFAppState().choiceMenuPrice + 3600,
+                              ParamType.int,
+                            ),
+                            'choiceMenuOption': serializeParam(
+                              1,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                      } else {
+                        context.pushNamed(
+                          'MainMenuCopy',
+                          queryParameters: {
+                            'name': serializeParam(
+                              '${widget!.name}라지세트',
+                              ParamType.String,
+                            ),
+                            'price': serializeParam(
+                              FFAppState().choiceMenuPrice + 3600,
+                              ParamType.int,
+                            ),
+                            'choiceMenuOption': serializeParam(
+                              1,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
+                      }
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            '다시 시도해보세요!',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 1000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                    }
+
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.353,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFF0000),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Text(
+                      '업그레이드 하기',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: Colors.white,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
