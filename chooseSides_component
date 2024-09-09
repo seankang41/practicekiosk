@@ -1,0 +1,355 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'choosesidemenu_model.dart';
+export 'choosesidemenu_model.dart';
+
+class ChoosesidemenuWidget extends StatefulWidget {
+  const ChoosesidemenuWidget({super.key});
+
+  @override
+  State<ChoosesidemenuWidget> createState() => _ChoosesidemenuWidgetState();
+}
+
+class _ChoosesidemenuWidgetState extends State<ChoosesidemenuWidget> {
+  late ChoosesidemenuModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ChoosesidemenuModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 303,
+      decoration: BoxDecoration(
+        color: Color(0xFFEBEBEB),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 3,
+            color: Color(0x33000000),
+            offset: Offset(
+              0,
+              1,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: FlutterFlowTheme.of(context).alternate,
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(14, 16, 0, 0),
+                      child: Text(
+                        '사이드 선택',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              fontSize: 20,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().sidechoice = 0;
+                        safeSetState(() {});
+                        Navigator.pop(context);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: Color(0x00FFFFFF),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: Image.asset(
+                                  'assets/images/image_19.png',
+                                ).image,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '프렌치프라이(L)',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  Text(
+                                    '+0원',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 8,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ].divide(SizedBox(height: 10)),
+                      ),
+                    ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().sidechoice = 1;
+                        safeSetState(() {});
+                        Navigator.pop(context);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: Color(0x00FFFFFF),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: Image.asset(
+                                  'assets/images/image_19.png',
+                                ).image,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '프렌치프라이(R)',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  Text(
+                                    '+0원',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 8,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ].divide(SizedBox(height: 10)),
+                      ),
+                    ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().sidechoice = 2;
+                        safeSetState(() {});
+                        Navigator.pop(context);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: Color(0x00FFFFFF),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: Image.asset(
+                                  'assets/images/mozarella_(1).png',
+                                ).image,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '모짜렐라스틱',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  Text(
+                                    '+0원',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 8,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ].divide(SizedBox(height: 10)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().sidechoice = 3;
+                      safeSetState(() {});
+                      Navigator.pop(context);
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 56,
+                          decoration: BoxDecoration(
+                            color: Color(0x00FFFFFF),
+                            image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: Image.asset(
+                                'assets/images/cheesebites_(1).png',
+                              ).image,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '치즈바이트',
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                Text(
+                                  '+0원',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 8,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ].divide(SizedBox(height: 10)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
