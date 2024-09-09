@@ -1,0 +1,444 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/walkthroughs/homepagecopy.dart';
+import 'dart:ui';
+import 'package:styled_divider/styled_divider.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'home_page_choose_model.dart';
+export 'home_page_choose_model.dart';
+
+class HomePageChooseWidget extends StatefulWidget {
+  const HomePageChooseWidget({super.key});
+
+  @override
+  State<HomePageChooseWidget> createState() => _HomePageChooseWidgetState();
+}
+
+class _HomePageChooseWidgetState extends State<HomePageChooseWidget> {
+  late HomePageChooseModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => HomePageChooseModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Color(0xFF7F1616),
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              ClipRect(
+                child: ImageFiltered(
+                  imageFilter: ImageFilter.blur(
+                    sigmaX: 5,
+                    sigmaY: 5,
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: Image.asset(
+                          'assets/images/iPhone_13_mini_-_13.png',
+                        ).image,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF7F1616),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 5, 0, 5),
+                                    child: Container(
+                                      width: 50,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x00FFFFFF),
+                                        image: DecorationImage(
+                                          fit: BoxFit.contain,
+                                          image: Image.asset(
+                                            'assets/images/burger.png',
+                                          ).image,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      30, 20, 0, 0),
+                                  child: Text(
+                                    'Your Way,\nWay Better',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Acme',
+                                          color: Color(0xFFDB0A0A),
+                                          fontSize: 46,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          lineHeight: 1.1,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 180,
+                            decoration: BoxDecoration(
+                              color: Color(0xFF7F1616),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 70, 0, 0),
+                                  child: Text(
+                                    '화면을 터치하세요',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontSize: 16,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  'Language Selection',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 12,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 10, 0, 0),
+                                  child: Container(
+                                    width: 100,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: Image.asset(
+                                          'assets/images/flags.png',
+                                        ).image,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Container(
+                  width: 294,
+                  height: 298,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFEBEBEB),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 25),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '선택해주세요',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      StyledDivider(
+                        thickness: 1,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        lineStyle: DividerLineStyle.dotted,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                FFAppState().choice = 1;
+                                safeSetState(() {});
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                      image: DecorationImage(
+                                        fit: BoxFit.contain,
+                                        image: Image.asset(
+                                          'assets/images/food.png',
+                                        ).image,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    '매장식사',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 16,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ).addWalkthrough(
+                              column5pyvflrk,
+                              _model.homepagecopyController,
+                            ),
+                            SizedBox(
+                              height: 100,
+                              child: VerticalDivider(
+                                thickness: 1,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                FFAppState().choice = 2;
+                                safeSetState(() {});
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x00FFFFFF),
+                                      image: DecorationImage(
+                                        fit: BoxFit.contain,
+                                        image: Image.asset(
+                                          'assets/images/realbox.png',
+                                        ).image,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    '포장주문',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 16,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(35, 20, 35, 36),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'MainMenu',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
+                              },
+                              text: '확인',
+                              options: FFButtonOptions(
+                                width: 224,
+                                height: 49,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                color: Color(0xFF3A3A3A),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: Colors.white,
+                                      fontSize: 23,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                elevation: 3,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ).addWalkthrough(
+                              button0u3orhsf,
+                              _model.homepagecopyController,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              if (FFAppState().choice == 1)
+                Align(
+                  alignment: AlignmentDirectional(-0.41, 0),
+                  child: Container(
+                    width: 60,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color(0x00FFFFFF),
+                      image: DecorationImage(
+                        fit: BoxFit.contain,
+                        image: Image.asset(
+                          'assets/images/Group_143725961.png',
+                        ).image,
+                      ),
+                    ),
+                  ),
+                ),
+              if (FFAppState().choice == 2)
+                Align(
+                  alignment: AlignmentDirectional(0.45, 0),
+                  child: Container(
+                    width: 60,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color(0x00FFFFFF),
+                      image: DecorationImage(
+                        fit: BoxFit.contain,
+                        image: Image.asset(
+                          'assets/images/Group_143725961.png',
+                        ).image,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.homepagecopyController = null);
+        },
+        onSkip: () {
+          return true;
+        },
+      );
+}
