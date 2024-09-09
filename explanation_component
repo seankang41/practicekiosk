@@ -1,0 +1,86 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'explanation1_model.dart';
+export 'explanation1_model.dart';
+
+class Explanation1Widget extends StatefulWidget {
+  const Explanation1Widget({
+    super.key,
+    required this.text,
+  });
+
+  final String? text;
+
+  @override
+  State<Explanation1Widget> createState() => _Explanation1WidgetState();
+}
+
+class _Explanation1WidgetState extends State<Explanation1Widget> {
+  late Explanation1Model _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => Explanation1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 294,
+      height: 235,
+      decoration: BoxDecoration(
+        color: Color(0xFFEBEBEB),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 3,
+            color: Color(0x33000000),
+            offset: Offset(
+              0,
+              1,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: FlutterFlowTheme.of(context).alternate,
+        ),
+      ),
+      child: Align(
+        alignment: AlignmentDirectional(0, 0),
+        child: Text(
+          valueOrDefault<String>(
+            widget!.text,
+            '.',
+          ),
+          textAlign: TextAlign.center,
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Inter',
+                fontSize: 20,
+                letterSpacing: 0.0,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+      ),
+    );
+  }
+}
