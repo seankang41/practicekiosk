@@ -1,0 +1,467 @@
+import '/components/choosetype2_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'choosetype_model.dart';
+export 'choosetype_model.dart';
+
+class ChoosetypeWidget extends StatefulWidget {
+  const ChoosetypeWidget({
+    super.key,
+    String? name,
+    int? price,
+  })  : this.name = name ?? '치즈와퍼',
+        this.price = price ?? 5200;
+
+  final String name;
+  final int price;
+
+  @override
+  State<ChoosetypeWidget> createState() => _ChoosetypeWidgetState();
+}
+
+class _ChoosetypeWidgetState extends State<ChoosetypeWidget> {
+  late ChoosetypeModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ChoosetypeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Container(
+      width: 294,
+      height: 360,
+      decoration: BoxDecoration(
+        color: Color(0xFFEBEBEB),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 3,
+            color: Color(0x33000000),
+            offset: Offset(
+              0,
+              1,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: FlutterFlowTheme.of(context).alternate,
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+            child: Text(
+              '원하시는 구성을 선택해주세요 ',
+              textAlign: TextAlign.center,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.w800,
+                  ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(17, 0, 9, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (FFAppState().choiceMenuOptions != 1)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 1;
+                      FFAppState().choiceMenuPrice = widget!.price + 3600;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box_outlined,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                if (FFAppState().choiceMenuOptions == 1)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 0;
+                      FFAppState().choiceMenuPrice = 0;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 120,
+                      height: 25,
+                      decoration: BoxDecoration(),
+                      child: AutoSizeText(
+                        '${widget!.name}라지세트',
+                        textAlign: TextAlign.start,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Text(
+                      '햄버거 + 프렌치프라이L + 콜라',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            fontSize: 8,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                    Text(
+                      (widget!.price + 3600).toString(),
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: Color(0xFFDB0A0A),
+                            fontSize: 13,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 100,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Color(0x00FFFFFF),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: Image.asset(
+                        'assets/images/realburger.png',
+                      ).image,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(17, 0, 9, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (FFAppState().choiceMenuOptions != 2)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 2;
+                      FFAppState().choiceMenuPrice = widget!.price;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box_outlined,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                if (FFAppState().choiceMenuOptions == 2)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 0;
+                      FFAppState().choiceMenuPrice = 0;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 120,
+                      height: 20,
+                      decoration: BoxDecoration(),
+                      child: AutoSizeText(
+                        '${widget!.name}세트',
+                        textAlign: TextAlign.start,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Text(
+                      '햄버거 + 프렌치프라이L + 콜라',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            fontSize: 8,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                    Text(
+                      (widget!.price + 2900).toString(),
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: Color(0xFFDB0A0A),
+                            fontSize: 13,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 100,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Color(0x00FFFFFF),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: Image.asset(
+                        'assets/images/Group_143725974.png',
+                      ).image,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(17, 0, 9, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (FFAppState().choiceMenuOptions != 3)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 3;
+                      FFAppState().choiceMenuPrice = widget!.price;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box_outlined,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                if (FFAppState().choiceMenuOptions == 3)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().choiceMenuOptions = 0;
+                      FFAppState().choiceMenuPrice = 0;
+                      safeSetState(() {});
+                    },
+                    child: Icon(
+                      Icons.check_box,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24,
+                    ),
+                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${widget!.name}단품',
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                    Text(
+                      '햄버거 + 프렌치프라이L + 콜라',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            fontSize: 8,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                    Text(
+                      widget!.price.toString(),
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: Color(0xFFDB0A0A),
+                            fontSize: 13,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 100,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Color(0x00FFFFFF),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: Image.asset(
+                        'assets/images/realburger.png',
+                      ).image,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Builder(
+            builder: (context) => InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                Navigator.pop(context);
+                if (FFAppState().choiceMenuOptions != 0) {
+                  if (FFAppState().choiceMenuOptions != 1) {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0, 0)
+                              .resolve(Directionality.of(context)),
+                          child: Choosetype2Widget(
+                            choiceMenuOptions: FFAppState().choiceMenuOptions,
+                            choiceMenuPrice: FFAppState().choiceMenuPrice,
+                            name: FFAppState().choiceMenuOptions == 2
+                                ? '${widget!.name}세트'
+                                : widget!.name,
+                          ),
+                        );
+                      },
+                    );
+                  } else {
+                    context.pushNamed(
+                      'MainMenuCopy',
+                      queryParameters: {
+                        'name': serializeParam(
+                          '${widget!.name}라지세트',
+                          ParamType.String,
+                        ),
+                        'price': serializeParam(
+                          FFAppState().choiceMenuPrice,
+                          ParamType.int,
+                        ),
+                        'choiceMenuOption': serializeParam(
+                          FFAppState().choiceMenuPrice,
+                          ParamType.int,
+                        ),
+                      }.withoutNulls,
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 0),
+                        ),
+                      },
+                    );
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        '상품을 골라주세요!',
+                        style: TextStyle(
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        ),
+                      ),
+                      duration: Duration(milliseconds: 1000),
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                    ),
+                  );
+                }
+              },
+              child: Container(
+                width: double.infinity,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: FFAppState().choiceMenuOptions != 0
+                      ? Color(0xFFF40004)
+                      : Color(0xFF9C9C9C),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0),
+                  ),
+                ),
+                alignment: AlignmentDirectional(0, 0),
+                child: Text(
+                  '확인',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
