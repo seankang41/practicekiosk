@@ -1,0 +1,1475 @@
+import '/components/choosedrinks_widget.dart';
+import '/components/choosesidemenu_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'main_menu_copy_model.dart';
+export 'main_menu_copy_model.dart';
+
+class MainMenuCopyWidget extends StatefulWidget {
+  const MainMenuCopyWidget({
+    super.key,
+    required this.name,
+    required this.price,
+    required this.choiceMenuOption,
+  });
+
+  final String? name;
+  final int? price;
+  final int? choiceMenuOption;
+
+  @override
+  State<MainMenuCopyWidget> createState() => _MainMenuCopyWidgetState();
+}
+
+class _MainMenuCopyWidgetState extends State<MainMenuCopyWidget> {
+  late MainMenuCopyModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MainMenuCopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryText,
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: 400,
+                        height: 92,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: Image.asset(
+                              'assets/images/banner.png',
+                            ).image,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: 400,
+                    height: 450,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF5F0EC),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 39,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 39,
+                                decoration: BoxDecoration(),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_back_ios,
+                                      color: Color(0xFF2A1F19),
+                                      size: 18,
+                                    ),
+                                    Text(
+                                      'BACK',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: Color(0xFF2A1F19),
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 0, 105, 0),
+                                child: Text(
+                                  '선택한 메뉴를 확인해 주세요',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                                child: Text(
+                                  '선택한 메뉴',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 5, 0),
+                                      child: Text(
+                                        '${widget!.name} ${widget!.price?.toString()}원',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 22, 0, 0),
+                              child: Container(
+                                width: 350,
+                                height: 150,
+                                decoration: BoxDecoration(
+                                  color: Color(0x00FFFFFF),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 10, 0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              color: Color(0x00FFFFFF),
+                                              image: DecorationImage(
+                                                fit: BoxFit.contain,
+                                                image: Image.asset(
+                                                  'assets/images/Group_143725974.png',
+                                                ).image,
+                                              ),
+                                              border: Border.all(
+                                                color: Colors.transparent,
+                                                width: 0,
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 100,
+                                            height: 40,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 12, 0, 0),
+                                              child: AutoSizeText(
+                                                valueOrDefault<String>(
+                                                  widget!.name,
+                                                  '몬스터 X',
+                                                ),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 16,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 7, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: '재료변경',
+                                              options: FFButtonOptions(
+                                                width: 85,
+                                                height: 25,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 0, 0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(0, 0, 0, 0),
+                                                color: Color(0xFF950000),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: Colors.white,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(24),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      if (widget!.choiceMenuOption != 3)
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            if (FFAppState().sidechoice == 0)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/image_19.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().sidechoice == 1)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/image_19.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().sidechoice == 2)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/mozarella_(1).png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().sidechoice == 3)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/cheesebites_(1).png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            Container(
+                                              width: 100,
+                                              height: 40,
+                                              decoration: BoxDecoration(),
+                                              child: Stack(
+                                                children: [
+                                                  if (FFAppState().sidechoice ==
+                                                      0)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '프렌치프라이(L)',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().sidechoice ==
+                                                      1)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '프렌치프라이(R)',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().sidechoice ==
+                                                      2)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '모짜렐라 스틱',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().sidechoice ==
+                                                      3)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '치즈바이트',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                            Builder(
+                                              builder: (context) => Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 7, 0, 0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0, 0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () =>
+                                                                FocusScope.of(
+                                                                        dialogContext)
+                                                                    .unfocus(),
+                                                            child:
+                                                                ChoosesidemenuWidget(),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  text: '사이드변경',
+                                                  options: FFButtonOptions(
+                                                    width: 85,
+                                                    height: 25,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
+                                                    color: Color(0xFF950000),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: Colors.white,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    elevation: 3,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      if (widget!.choiceMenuOption != 3)
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            if (FFAppState().drinks == 0)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/image_18.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().drinks == 1)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/image_18.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().drinks == 2)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/fanta.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState().drinks == 3)
+                                              Container(
+                                                width: 100,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00FFFFFF),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.contain,
+                                                    image: Image.asset(
+                                                      'assets/images/sprite.png',
+                                                    ).image,
+                                                  ),
+                                                  border: Border.all(
+                                                    color: Colors.transparent,
+                                                    width: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                            Container(
+                                              width: 100,
+                                              height: 40,
+                                              decoration: BoxDecoration(),
+                                              child: Stack(
+                                                children: [
+                                                  if (FFAppState().drinks == 0)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '코카콜라',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().drinks == 1)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '코카콜라 제로',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().drinks == 2)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '환타',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (FFAppState().drinks == 3)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, -1),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: AutoSizeText(
+                                                          '스프라이트',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                            Builder(
+                                              builder: (context) => Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 7, 0, 0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0, 0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () =>
+                                                                FocusScope.of(
+                                                                        dialogContext)
+                                                                    .unfocus(),
+                                                            child:
+                                                                ChoosedrinksWidget(),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  text: '음료변경',
+                                                  options: FFButtonOptions(
+                                                    width: 85,
+                                                    height: 25,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
+                                                    color: Color(0xFF950000),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: Colors.white,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    elevation: 3,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 141,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        47, 9, 47, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '주문금액',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              '수량선택',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 0, 0, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState().count =
+                                                          FFAppState().count +
+                                                              -1;
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons
+                                                          .remove_circle_outline,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    FFAppState()
+                                                        .count
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState().count =
+                                                          FFAppState().count +
+                                                              1;
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.add_circle_outline,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                ].divide(SizedBox(width: 10)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 34, 0, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        if (widget!.choiceMenuOption == 1) {
+                                          FFAppState().addToPriceofitems(
+                                              widget!.price!);
+                                          safeSetState(() {});
+                                          FFAppState()
+                                              .addToAmount(FFAppState().count);
+                                          safeSetState(() {});
+                                          FFAppState()
+                                              .addToNameofitems(widget!.name!);
+                                          safeSetState(() {});
+                                          FFAppState().totalcart =
+                                              FFAppState().totalcart + 1;
+                                          FFAppState().totalprice =
+                                              FFAppState().totalprice +
+                                                  widget!.price!;
+                                          safeSetState(() {});
+                                          FFAppState().choiceMenuOptions = 0;
+                                          FFAppState().choiceMenuPrice = 0;
+                                          FFAppState().update(() {});
+                                        } else {
+                                          if (widget!.choiceMenuOption == 3) {
+                                            FFAppState().addToPriceofitems(
+                                                widget!.price!);
+                                            safeSetState(() {});
+                                            FFAppState().addToAmount(
+                                                FFAppState().count);
+                                            safeSetState(() {});
+                                            FFAppState().totalcart =
+                                                FFAppState().totalcart + 1;
+                                            FFAppState().totalprice =
+                                                FFAppState().totalprice +
+                                                    widget!.price!;
+                                            safeSetState(() {});
+                                            FFAppState().addToNameofitems(
+                                                widget!.name!);
+                                            safeSetState(() {});
+                                            FFAppState().choiceMenuOptions = 0;
+                                            FFAppState().choiceMenuPrice = 0;
+                                            FFAppState().update(() {});
+                                          } else {
+                                            FFAppState().addToPriceofitems(
+                                                widget!.price!);
+                                            safeSetState(() {});
+                                            FFAppState().addToAmount(
+                                                FFAppState().count);
+                                            safeSetState(() {});
+                                            FFAppState().totalcart =
+                                                FFAppState().totalcart + 1;
+                                            FFAppState().totalprice =
+                                                FFAppState().totalprice +
+                                                    widget!.price!;
+                                            safeSetState(() {});
+                                            FFAppState().addToNameofitems(
+                                                widget!.name!);
+                                            safeSetState(() {});
+                                            FFAppState().choiceMenuOptions = 0;
+                                            FFAppState().choiceMenuPrice = 0;
+                                            FFAppState().update(() {});
+                                          }
+                                        }
+
+                                        context.pushNamed(
+                                          'MainMenu',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
+
+                                        FFAppState().count = 1;
+                                        safeSetState(() {});
+                                      },
+                                      text: '카트담기',
+                                      options: FFButtonOptions(
+                                        width: 261,
+                                        height: 32,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 24, 0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 0),
+                                        color: Color(0xFF7F1616),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                width: double.infinity,
+                height: MediaQuery.sizeOf(context).height * 0.2,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF5F0EC),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 10, 0, 5),
+                                    child: Text(
+                                      '카트',
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        7, 0, 0, 0),
+                                    child: Container(
+                                      width: 42,
+                                      height: 22,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFF40004),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Align(
+                                        alignment: AlignmentDirectional(0, 0),
+                                        child: Text(
+                                          FFAppState().totalcart.toString(),
+                                          textAlign: TextAlign.end,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color: Colors.white,
+                                                fontSize: 16,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    '총 주문금액: ${valueOrDefault<String>(
+                                      formatNumber(
+                                        FFAppState().totalprice,
+                                        formatType: FormatType.decimal,
+                                        decimalType: DecimalType.periodDecimal,
+                                      ),
+                                      '0',
+                                    )}원',
+                                    '0',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                          child: Builder(
+                            builder: (context) {
+                              final burgers =
+                                  FFAppState().priceofitems.toList();
+
+                              return SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: List.generate(burgers.length,
+                                      (burgersIndex) {
+                                    final burgersItem = burgers[burgersIndex];
+                                    return Container(
+                                      width: 124,
+                                      height: 77,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 5, 0, 0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 7, 0, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    width: 100,
+                                                    height: 25,
+                                                    decoration: BoxDecoration(),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10, 0, 0, 0),
+                                                      child: AutoSizeText(
+                                                        valueOrDefault<String>(
+                                                          '${FFAppState().nameofitems[burgersIndex]}${valueOrDefault<String>(
+                                                            FFAppState()
+                                                                .amount[
+                                                                    burgersIndex]
+                                                                .toString(),
+                                                            '0',
+                                                          )}',
+                                                          '0',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 18,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 6, 0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                            .removeAtIndexFromPriceofitems(
+                                                                burgersIndex);
+                                                        FFAppState()
+                                                            .removeAtIndexFromAmount(
+                                                                burgersIndex);
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 16,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 4, 0, 0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  '${FFAppState().priceofitems[burgersIndex].toString()}원',
+                                                  '0',
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color:
+                                                              Color(0xFFF40004),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }).divide(SizedBox(width: 12)),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: MediaQuery.sizeOf(context).width * 0.45,
+                            height: 49,
+                            decoration: BoxDecoration(
+                              color: Color(0xFF3A3A3A),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0, 0),
+                              child: Text(
+                                '취소',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: Colors.white,
+                                      fontSize: 23,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget!.choiceMenuOption == 1) {
+                                FFAppState().addToPriceofitems(
+                                    FFAppState().choiceMenuPrice);
+                                safeSetState(() {});
+                                FFAppState().addToAmount(FFAppState().count);
+                                safeSetState(() {});
+                                FFAppState().addToNameofitems(widget!.name!);
+                                safeSetState(() {});
+                                FFAppState().totalcart =
+                                    FFAppState().totalcart + 1;
+                                FFAppState().totalprice =
+                                    FFAppState().totalprice +
+                                        FFAppState().choiceMenuPrice;
+                                safeSetState(() {});
+                                FFAppState().choiceMenuOptions = 0;
+                                FFAppState().choiceMenuPrice = 0;
+                                FFAppState().update(() {});
+                              } else {
+                                if (widget!.choiceMenuOption == 3) {
+                                  FFAppState().addToPriceofitems(
+                                      FFAppState().choiceMenuPrice);
+                                  safeSetState(() {});
+                                  FFAppState().addToAmount(FFAppState().count);
+                                  safeSetState(() {});
+                                  FFAppState().totalcart =
+                                      FFAppState().totalcart + 1;
+                                  FFAppState().totalprice =
+                                      FFAppState().totalprice +
+                                          FFAppState().choiceMenuPrice;
+                                  safeSetState(() {});
+                                  FFAppState().addToNameofitems(widget!.name!);
+                                  safeSetState(() {});
+                                  FFAppState().choiceMenuOptions = 0;
+                                  FFAppState().choiceMenuPrice = 0;
+                                  FFAppState().update(() {});
+                                } else {
+                                  FFAppState().addToPriceofitems(
+                                      FFAppState().choiceMenuPrice);
+                                  safeSetState(() {});
+                                  FFAppState().addToAmount(FFAppState().count);
+                                  safeSetState(() {});
+                                  FFAppState().totalcart =
+                                      FFAppState().totalcart + 1;
+                                  FFAppState().totalprice =
+                                      FFAppState().totalprice +
+                                          FFAppState().choiceMenuPrice;
+                                  safeSetState(() {});
+                                  FFAppState().addToNameofitems(widget!.name!);
+                                  safeSetState(() {});
+                                  FFAppState().choiceMenuOptions = 0;
+                                  FFAppState().choiceMenuPrice = 0;
+                                  FFAppState().update(() {});
+                                }
+                              }
+
+                              context.pushNamed(
+                                'OrderMethod',
+                                queryParameters: {
+                                  'price': serializeParam(
+                                    widget!.price,
+                                    ParamType.int,
+                                  ),
+                                }.withoutNulls,
+                              );
+
+                              FFAppState().count = 1;
+                              safeSetState(() {});
+                            },
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.45,
+                              height: 49,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF40004),
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(0, 0),
+                                child: Text(
+                                  '결제하기',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Colors.white,
+                                        fontSize: 23,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
